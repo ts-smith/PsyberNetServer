@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+  <cron>
+    <url>/cron/CleanRegions</url>
+    <description>Clean Regions of old items from database</description>
+    <schedule>every day 13:00</schedule>
+  </cron>
+</cronentries>

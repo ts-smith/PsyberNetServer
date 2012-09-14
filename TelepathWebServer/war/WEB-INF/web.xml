@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+<security-constraint>
+    <web-resource-collection>
+        <url-pattern>
+			/cron/*
+        </url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+        <role-name>
+			admin
+        </role-name>
+    </auth-constraint>
+</security-constraint>
+<security-constraint>
+    <web-resource-collection>
+        <url-pattern>
+			/secure/*
+        </url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+        <role-name>
+			admin
+        </role-name>
+    </auth-constraint>
+</security-constraint>
+<security-constraint>
+    <web-resource-collection>
+        <url-pattern>
+			/createRegionGoats*
+        </url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+        <role-name>
+			admin
+        </role-name>
+    </auth-constraint>
+</security-constraint>
+    	
+	<servlet>
+		<servlet-name>CandidateRegions</servlet-name>
+		<servlet-class>psyborg.FindCandidateRegions</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CandidateRegions</servlet-name>
+		<url-pattern>/findcandidateregions</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>RegionOverview</servlet-name>
+		<servlet-class>psyborg.WriteOverview</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegionOverview</servlet-name>
+		<url-pattern>/regionOverview</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>WriteConversations</servlet-name>
+		<servlet-class>psyborg.WriteConversations</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WriteConversations</servlet-name>
+		<url-pattern>/writeConversations</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>replyToConversations</servlet-name>
+		<servlet-class>psyborg.PostReplyToConversations</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>replyToConversations</servlet-name>
+		<url-pattern>/replyToConversations</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>newParentToConversations</servlet-name>
+		<servlet-class>psyborg.PostParentToConversations</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>newParentToConversations</servlet-name>
+		<url-pattern>/postParentToConversations</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>signIn</servlet-name>
+		<servlet-class>psyborg.SignIn</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>signIn</servlet-name>
+		<url-pattern>/signIn</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>signUp</servlet-name>
+		<servlet-class>psyborg.SignUp</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>signUp</servlet-name>
+		<url-pattern>/signUp</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>postPm</servlet-name>
+		<servlet-class>psyborg.StorePM</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>postPm</servlet-name>
+		<url-pattern>/postPm</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>getPmConversation</servlet-name>
+		<servlet-class>psyborg.GetPmConversation</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>getPmConversation</servlet-name>
+		<url-pattern>/getPmConversation</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>GetPmList</servlet-name>
+		<servlet-class>psyborg.GetPmList</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetPmList</servlet-name>
+		<url-pattern>/getPmList</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	
+	<servlet>
+		<servlet-name>RegionCreator</servlet-name>
+		<servlet-class>psyborg.RegionCreator</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegionCreator</servlet-name>
+		<url-pattern>/secure/createRegion</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>editContent</servlet-name>
+		<servlet-class>psyborg.ContentEditor</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>editContent</servlet-name>
+		<url-pattern>/secure/editContent</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	    <servlet-name>cronCleanConversations</servlet-name>
+	    <servlet-class>psyborg.XCronCleanRegions</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>cronCleanConversations</servlet-name>
+	    <url-pattern>/cron/CleanRegions</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+ <servlet>
+  <servlet-name>SystemServiceServlet</servlet-name>
+  <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
+  <init-param>
+   <param-name>services</param-name>
+   <param-value/>
+  </init-param>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>SystemServiceServlet</servlet-name>
+  <url-pattern>/_ah/spi/*</url-pattern>
+ </servlet-mapping>
+</web-app>

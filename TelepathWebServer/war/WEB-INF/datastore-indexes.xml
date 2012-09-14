@@ -1,0 +1,7 @@
+<datastore-indexes
+  autoGenerate="false">
+    <datastore-index kind="pmConversation" ancestor="false" source="manual">
+        <property name="pmKey" direction="asc"/>
+        <property name="date" direction="desc"/>
+    </datastore-index>
+</datastore-indexes>
